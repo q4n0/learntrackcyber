@@ -29,7 +29,38 @@ const learningCurriculum = {
       name: "Linux Fundamentals",
       days: [1, 2, 3, 4],
       resources: {
-        // ... (keep existing resources)
+        videos: [
+          {
+            creator: "Linux Journey",
+            title: "Linux Basics",
+            url: "https://www.youtube.com/watch?v=V1y-mbWM3B8",
+            duration: "1:22:43",
+            keyPoints: [
+              "Basic commands",
+              "File system navigation",
+              "User management"
+            ]
+          }
+        ],
+        practiceExercises: [
+          {
+            title: "File Manipulation",
+            difficulty: "Beginner",
+            description: "Create, move, and delete files using command line",
+            codeTemplate: `
+# Your commands here
+            `,
+            solution: `
+mkdir practice
+cd practice
+touch file1.txt file2.txt
+mv file1.txt renamed_file.txt
+rm file2.txt
+cd ..
+rmdir practice
+            `
+          }
+        ]
       },
       reviewTopics: [
         {
