@@ -1,0 +1,45 @@
+{
+  "name": "cybersecurity-learning-tracker",
+  "version": "1.0.0",
+  "description": "A comprehensive cybersecurity learning application",
+  "main": "main.js",
+  "scripts": {
+    "dev": "concurrently \"next dev\" \"electron .\"",
+    "build": "next build && next export",
+    "start": "next start",
+    "lint": "next lint",
+    "electron-build": "electron-builder -c.extraMetadata.main=main.js",
+    "package": "npm run build && npm run electron-build",
+    "package-win": "npm run build && electron-builder --win",
+    "package-linux": "npm run build && electron-builder --linux"
+  },
+  "build": {
+    "appId": "com.cybersecurity.learningtracker",
+    "productName": "Cybersecurity Learning Tracker",
+    "files": [
+      "main.js",
+      "out/**/*",
+      "node_modules/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "public/icon.ico"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "public/icon.png",
+      "category": "Education"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    }
+  },
+  "devDependencies": {
+    "electron": "^22.0.0",
+    "electron-builder": "^24.4.0",
+    "electron-is-dev": "^2.0.0",
+    "concurrently": "^8.0.1"
+  }
+}
